@@ -2,9 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const Groq = require("groq-sdk");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 if (!process.env.GROQ_API_KEY) {
   console.error("ERROR: GROQ_API_KEY is missing in your .env file.");
